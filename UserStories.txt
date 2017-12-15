@@ -1,0 +1,37 @@
+MySQL
+
+1. Animal Adoption Service
+a. As a Health Care Officer, I want to query which animals have not been neutered so I can book an appointment with the vets.
+b. As a Social Media Consultant, I want to query which animals have been there the longest so I can create a campaign online to get them homed quickly.
+c. As a Receptionist, I want to query animals by specific criteria to help direct customers to the animals they wish to adopt.
+d. As a Customer, I want to query which animals are available adoption so I can adopt an animal of my choice. 
+e. As a Customer, I want to query the animals last check-up so I can take it to a vet to provide an appropriate check-up.
+f. As a Social Media Consultant, I want to query most/least popular type of animal so I can create a campaign online to inform the public about them. 
+g. As a Customer, I want to query the animals background so I am able to know if the animal would be suitable to bring home. 
+h. As a Customer, I want to know the details such as age, name, description of animals so I can adopt an animal of my choice. 
+
+2. Book Publishing Company
+a. As a Publishing Director, I want to search for our most lucrative author so I can appropriately reward them.
+b. As a Marketing Executive, I wish to search for most popular genres by a specific author to create tailored advertising schemes.
+c. As an Author Liaison, I want to search for books that are not yet complete by the order of the date they were started, so I can manage authors effectively.
+d. As a Publishing Director, I want to search for our least lucrative author so I can appropriately sack them.
+e. As an Author, I want to know the number of sales per book.
+f. As a Customer, I want to know the release dates of books so I can buy or read. 
+g. As a Social Media Consultant, I want to search for most popular genres by a specific author so I can create a campaign online for advertising.
+h. As a Publishing Director, I want to know the total number of staff by each department to ensure there are sufficient resources.
+
+Mongo
+
+1. Library Rentals 
+a. As a Librarian I want to query if any rentals are overdue so I can chase this up.
+b. As a Customer I want to query by a particular author or artist in order to find items by someone I like.
+c. As a Social Media Consultant I want to know which items get rented out the most so I can create effective campaigns for them.
+d. As a Librarian I want to query which shelf a book belongs to so I can return to its proper place
+e. As a Customer I want to query by a genre in order to find item I like. 
+
+2. Emergency Services Logs 
+a. As a Managing Director I want to query what the peak times for particular service requests are so I can appropriately assign staff.
+b. As a Calls Manager I want to query which members of staff have taken the most calls so I know who is performing well.
+c. As a Managing Director I want to query what the maximum call duration has been the past month so I can track statistics on this.
+d. As a Staff Member I want to query what the peak times are so I can plan my break to coincide. 
+e. As a Calls Manager I want to query which members of staff have taken the least calls so I know who is performing poorly. 

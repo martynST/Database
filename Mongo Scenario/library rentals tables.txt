@@ -1,0 +1,29 @@
+library rentals
+
+customers - table
+
+customer Id :
+name :
+address :
+items_borrowed : [
+			{},
+			{}
+			]
+
+
+item - table
+
+item_id :
+item_type :
+title :
+author :
+genre : 
+status : [
+		{
+			lent_to:
+			start_date:
+			return_date:
+		}
+	]
+shelf :
+

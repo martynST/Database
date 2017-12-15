@@ -1,0 +1,69 @@
+CREATE DATABASE IF NOT EXISTS Animal_Adoption_Service;
+
+USE Animal_Adoption_Service;
+
+CREATE TABLE customer(
+customer_id int PRIMARY KEY AUTO_INCREMENT,
+name VARCHAR(70),
+address VARCHAR(150)
+);
+SET SESSION SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+
+CREATE TABLE animal(
+animal_id int PRIMARY KEY AUTO_INCREMENT, 
+name VARCHAR(70), 
+age TINYINT, 
+gender ENUM('Female', 'Male'),
+type VARCHAR(70),
+breed VARCHAR(70),
+join_date DATE,
+last_health_check DATE, 
+is_neutered BOOLEAN,
+fk_adopted int, 
+background VARCHAR(300),
+FOREIGN KEY(fk_adopted) REFERENCES customer(customer_id)
+);
+
+INSERT INTO customer (customer_id, name, address) VALUES (0, 'adoption Agency','here');
+INSERT INTO customer (name, address) VALUES ('Asiya Hussain', '1 Lee Street, Manchester');
+INSERT INTO customer (name, address) VALUES ('Owen Chapman', '2 Cooper Street, Bury');
+INSERT INTO customer (name, address) VALUES ('Martyn Thomas', '3 Oxford Rd, Woking');
+INSERT INTO customer (name, address) VALUES ('Ryan', '4 Clarence Rd, London');
+INSERT INTO customer (name, address) VALUES ('Robel', '5 Clarence Rd, London');
+INSERT INTO customer (name, address) VALUES ('Dan', '6 Chamber Rd, Eccles');
+INSERT INTO customer (name, address) VALUES ('Matt', '7 New Rd, Bolton');
+INSERT INTO customer (name, address) VALUES ('Ester', '8 Old Rd, Surrey');
+INSERT INTO customer (name, address) VALUES ('Dev', '9 Create Street, Manchester');
+
+
+INSERT INTO animal (name, age, gender, type, breed, join_date, last_health_check, is_neutered, fk_adopted, background) VALUES ('Solo', 11, 'Female', 'dog', 'Staffy', '2013-07-14', '2013-07-28', '0', 0, 'Is a trained dog');
+INSERT INTO animal (name, age, gender, type, breed, join_date, last_health_check, is_neutered, fk_adopted, background) VALUES ('Laszlo', 2, 'Male', 'dog', 'Labradoodle', '2015-11-07', '2015-11-30', '1', 0, 'Is a well-behaved dog');
+INSERT INTO animal (name, age, gender, type, breed, join_date, last_health_check, is_neutered, fk_adopted, background) VALUES ('Amber', 5, 'Female', 'cat', 'Manx', '2010-01-20', '2010-02-06', '0', 0, 'Sleeps for 16 hours per day');
+INSERT INTO animal (name, age, gender, type, breed, join_date, last_health_check, is_neutered, fk_adopted, background) VALUES ('Leo', 8, 'Male', 'cat', 'Persian', '2011-02-12', '2011-03-02', '1', 0, 'Catches 3 rats per day!');
+INSERT INTO animal (name, age, gender, type, breed, join_date, last_health_check, is_neutered, fk_adopted, background) VALUES ('Toby', 3, 'Male', 'cat', 'Singapura', '2013-03-23', '2013-03-25', '1', 0, 'Prefers outdoors');
+INSERT INTO animal (name, age, gender, type, breed, join_date, last_health_check, is_neutered, fk_adopted, background) VALUES ('Alice', 3, 'Female', 'rabbit', 'English Angora', '2016-08-15', '2016-09-27', '0', 0, 'Require special diets and extensive daily grooming');
+INSERT INTO animal (name, age, gender, type, breed, join_date, last_health_check, is_neutered, fk_adopted, background) VALUES ('Oliver', 3, 'Male', 'rabbit', 'French Lob', '2017-11-02', '2017-11-27', '0', 0, 'Laid back and affectionate personality');
+INSERT INTO animal (name, age, gender, type, breed, join_date, last_health_check, is_neutered, fk_adopted, background) VALUES ('Laszlo', 2, 'Male', 'dog', 'Labrador', '2015-11-07', '2015-11-30', '1', 0, 'Is a well-behaved dog');
+INSERT INTO animal (name, age, gender, type, breed, join_date, last_health_check, is_neutered, fk_adopted, background) VALUES ('Theo', 12, 'Male', 'dog', 'Labrador', '2016-02-15', '2016-03-01', '1',0,'Is a good boy');
+INSERT INTO animal (name, age, gender, type, breed, join_date, last_health_check, is_neutered, fk_adopted, background) VALUES ('Ben', 9, 'Female', 'Snake', 'Corn', '2015-11-02', '2017-11-14', '0', 0, 'Was caught trying to kill someone');
+
+
+//not been neutered
+SELECT animal_id, name FROM animal WHERE is_neutered = 0; 
+//sort by date oldest first
+SELECT animal_id, name, join_date FROM animal WHERE fk_adopted = 0 ORDER BY join_date;
+//Select by criteria
+SELECT * FROM animal WHERE type = 'dog' AND fk_adopted = 0;
+//Select by not adopted
+SELECT * FROM animal WHERE fk_adopted = 0
+//Get last check up date
+SELECT name, last_health_check FROM animal WHERE animal_id = 3;
+//get most/least popular type of animal
+SELECT type, COUNT(type) as number_adopted FROM animal WHERE fk_adopted != 0 GROUP BY type;
+//get background on un adopted animals
+SELECT animal_id, name, background FROM animal WHERE fk_adopted = 0;
+
+//Adopt an animal
+UPDATE animal SET fk_adopted=1 WHERE animal_id=6;
+//show adopted animals and who adopted them
+SELECT a.name, a.type, c.name AS AdoptedBy FROM animal a JOIN customer c ON a.fk_adopted = c.customer_id WHERE a.fk_adopted != 0;

@@ -1,0 +1,22 @@
+Book Publishing Company
+
+Author - table
+
+Author_id
+name
+
+Book - table
+
+book_id
+title
+genre
+start_date
+release_date
+price
+backing
+status
+fk_author_id
+sales
+pages
+
+ENUM('Fantasy','Sci-fi','Action','Mystery','Horror','Biography','Historic','Non-fiction','Other')

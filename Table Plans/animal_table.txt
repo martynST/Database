@@ -1,0 +1,14 @@
+Animal Adoption service
+
+animals - table
+animal_id
+name
+gender
+type
+breed
+is_neutered
+last_health_check
+age
+background
+status
+join_date

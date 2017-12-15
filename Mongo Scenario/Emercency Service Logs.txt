@@ -1,0 +1,7 @@
+Emergency services logs
+
+calls
+staff_member :
+call_duration :
+time_of_call :
+date :
